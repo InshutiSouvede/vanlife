@@ -34,7 +34,7 @@ const typeFilter = searchParams.get('type')
       <div className="grid grid-cols-4 gap-5 items-center text-[#4D4D4D]">
         <button onClick={()=>setSearchParams({type:'simple'})} className="bg-[#FFEAD0] rounded-md py-2">Simple</button>
         <button onClick={()=>setSearchParams({type:'luxury'})} className="bg-[#FFEAD0] rounded-md py-2">Luxury</button>
-        <button onClick={()=>setSearchParams({type:'rugged'})} className="bg-[#FFEAD0] rounded-md py-2">Rugged</button>
+        <Link to={'?type=rugged'} className="bg-[#FFEAD0] text-center rounded-md py-2">Rugged</Link>
         {typeFilter&&<Link className="underline" to=".">
           Clear filters
         </Link>}
