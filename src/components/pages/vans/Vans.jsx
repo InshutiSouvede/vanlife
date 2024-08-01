@@ -11,7 +11,7 @@ const typeFilter = searchParams.get('type')
   const dispayVans = filteredVans.map((el) => {
     
     return (
-      <Link to={`/vans/${el.id}`} className="" key={el.id}>
+      <Link to={`${el.id}`} className="" key={el.id}>
         <img className="rounded-md my-5" src={el.imageUrl} alt="" />
         <div className="flex justify-between">
           <p>{el.name}</p>

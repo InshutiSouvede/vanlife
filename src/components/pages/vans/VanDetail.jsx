@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import '../../../../server'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 export default function VanDetail(){
     const [van,setVan] = useState(null)
     const id = useParams().id
@@ -15,7 +15,7 @@ export default function VanDetail(){
     const simple = 'bg-[#E17654]', luxury= 'bg-[#161616]',rugged ='bg-[#115E59]'
     return (
         <div className="p-10 text-lg">
-           <p>&larr; Back to all vans</p>
+           <Link to='..' relative="path">&larr; Back to all vans</Link>
            {
             van&&<div className=" flex flex-col gap-5 my-5">
                 <img className="rounded-md" src={van.imageUrl} alt="" />
