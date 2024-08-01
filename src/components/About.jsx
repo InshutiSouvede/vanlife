@@ -1,6 +1,6 @@
-export default function App() {
+export default function About() {
     return (
-        <div>
+    <div>
         <h1 className="font-bold">
             About page
         </h1>
