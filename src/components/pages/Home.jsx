@@ -8,7 +8,7 @@ export default function Home(){
                 You got the travel plans, we got the travel vans
             </h1>
             <p className="text-xl">Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
-            <Link className="bg-[#FF8C38] text-xl text-center p-3 rounded-lg" to='/vans'>Find your van</Link>
+            <Link className="bg-[#FF8C38] font-semibold text-white text-xl text-center p-3 rounded-lg" to='/vans'>Find your van</Link>
         </div>
     )
 }
