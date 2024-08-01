@@ -4,14 +4,16 @@ import '../../../../server'
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const dispayVans = vans.map((el) => {
+    const simple = 'bg-[#E17654]', luxury= 'bg-[#161616]',rugged ='bg-[#115E59]'
     return (
-      <div key={el.id}>
-        <img src={el.imageUrl} alt="" />
-        <div>
+      <div className="" key={el.id}>
+        <img className="rounded-md my-5" src={el.imageUrl} alt="" />
+        <div className="flex justify-between">
           <p>{el.name}</p>
-          <span>${el.price}/day</span>
-          <Link to="">{el.type}</Link>
+          <span className="grid grid-rows-2"><span>${el.price}</span>/day</span>
+          
         </div>
+        <Link className={`${el.type=='simple'?simple:el.type=='rugged'?rugged:luxury} w-max text-xl text-center px-5 py-2 rounded-lg text-[#FFEAD0]`} to="">{el.type}</Link>
       </div>
     );
   });
@@ -32,7 +34,9 @@ export default function Vans() {
           Clear filters
         </Link>
       </div>
-      <div>{dispayVans}</div>
+      <div className="grid grid-cols-2 gap-5">
+        {dispayVans}
+    </div>
     </div>
   );
 }
