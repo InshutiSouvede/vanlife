@@ -1,10 +1,8 @@
-
-
-export default function Home(){
+export default function Vans(){
     return (
         <div>
             <h1 className="font-bold">
-                Home page
+               Vans page
             </h1>
         </div>
     )
