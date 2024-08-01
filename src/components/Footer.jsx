@@ -1,9 +1,9 @@
-export default function About() {
+export default function Footer() {
     return (
     <div>
         <h1 className="font-bold">
-            About page
+            Footer
         </h1>
     </div>
     )
-  }
+}
