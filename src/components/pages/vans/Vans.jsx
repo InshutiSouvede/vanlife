@@ -6,7 +6,7 @@ export default function Vans() {
   const dispayVans = vans.map((el) => {
     const simple = 'bg-[#E17654]', luxury= 'bg-[#161616]',rugged ='bg-[#115E59]'
     return (
-      <div className="" key={el.id}>
+      <Link to='/vans/1' className="" key={el.id}>
         <img className="rounded-md my-5" src={el.imageUrl} alt="" />
         <div className="flex justify-between">
           <p>{el.name}</p>
@@ -14,7 +14,7 @@ export default function Vans() {
           
         </div>
         <Link className={`${el.type=='simple'?simple:el.type=='rugged'?rugged:luxury} w-max text-xl text-center px-5 py-2 rounded-lg text-[#FFEAD0]`} to="">{el.type}</Link>
-      </div>
+      </Link>
     );
   });
   useEffect(() => {
