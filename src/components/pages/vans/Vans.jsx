@@ -4,21 +4,20 @@ import '../../../../server'
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const [searchParams,setSearchParams] = useSearchParams()
-//   console.log(searchParams.get('type'))
 const typeFilter = searchParams.get('type')
   const simple = 'bg-[#E17654]', luxury= 'bg-[#161616]',rugged ='bg-[#115E59]'
   const filteredVans = !typeFilter? vans: vans.filter((el)=>el.type===typeFilter)
   const dispayVans = filteredVans.map((el) => {
     
     return (
-      <Link to={`${el.id}`} className="" key={el.id}>
+      <Link to={`${el.id}`} className="" key={el.id} state={{type:typeFilter,search:'?'+searchParams.toString()}}>
         <img className="rounded-md my-5" src={el.imageUrl} alt="" />
         <div className="flex justify-between">
           <p>{el.name}</p>
           <span className="grid grid-rows-2"><span>${el.price}</span>/day</span>
           
         </div>
-        <Link className={`${el.type=='simple'?simple:el.type=='rugged'?rugged:luxury} w-max text-xl text-center px-5 py-2 rounded-lg text-[#FFEAD0]`} to="">{el.type}</Link>
+        <button className={`${el.type=='simple'?simple:el.type=='rugged'?rugged:luxury} w-max text-xl text-center px-5 py-2 rounded-lg text-[#FFEAD0]`} to="">{el.type}</button>
       </Link>
     );
   });
