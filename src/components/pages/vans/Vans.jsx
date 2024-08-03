@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import '../../../../server'
+import { getAllData } from "../../../API";
 
 export function loader(){
   return "This is the loader"
 }
 
 export default function Vans() {
-  console.log(loader())
+  console.log("loader data ",useLoaderData())
   const [vans, setVans] = useState([]);
   const [searchParams,setSearchParams] = useSearchParams()
 const typeFilter = searchParams.get('type')
@@ -28,10 +29,8 @@ const typeFilter = searchParams.get('type')
     );
   });
   useEffect(() => {
-    fetch("api/vans")
-      .then((data) => data.json())
-      .then((data) => setVans(data.vans))
-      .catch((err) => console.log("There was an error", err));
+    getAllData().then((data)=>setVans(data.vans))
+    
   }, []);
   return (
     <div className="p-10 flex flex-col gap-5">
