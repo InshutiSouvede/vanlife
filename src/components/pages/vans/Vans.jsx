@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import '../../../../server'
+
+export function loader(){
+  return "This is the loader"
+}
+
 export default function Vans() {
+  console.log(loader())
   const [vans, setVans] = useState([]);
   const [searchParams,setSearchParams] = useSearchParams()
 const typeFilter = searchParams.get('type')
