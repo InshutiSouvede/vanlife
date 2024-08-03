@@ -9,7 +9,7 @@ export function loader() {
 
 export default function Vans() {
   const loaderData = useLoaderData()
-  const vans = loaderData.vans
+  const vans = loaderData
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   const simple = "bg-[#E17654]",

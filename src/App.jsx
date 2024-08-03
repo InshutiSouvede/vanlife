@@ -5,9 +5,10 @@ import AppLayout from "./components/layouts/AppLayout";
 import Vans, { loader } from "./components/pages/vans/Vans";
 import VanDetail from "./components/pages/vans/VanDetail";
 import NotFound from "./components/pages/NotFound";
+import Error from "./components/pages/Error";
 export default function App() {
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path="/" element={<AppLayout />}>
+    <Route path="/" element={<AppLayout />} errorElement={<Error />}>
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} loader={loader} />
