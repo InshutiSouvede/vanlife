@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import "../../../../server";
-import { getAllData } from "../../../API";
+import {getAllVans } from "../../../API";
 
 export function loader() {
-  return getAllData();
+  return getAllVans();
 }
 
 export default function Vans() {

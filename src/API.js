@@ -1,4 +1,4 @@
-export  async function getAllData(){
+export  async function getAllVans(){
     const res = await fetch("api/vans")
     if(!res.ok){
         throw {
