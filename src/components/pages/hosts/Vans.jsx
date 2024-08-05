@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import { getHostVans } from "../../../API"
 
 export function hostVanLoader(){
@@ -8,7 +8,7 @@ export default function HostVans(){
     const vans = useLoaderData()
     console.log(vans)
     const vansToDisplay = vans.map((el)=>{
-        return <div className="bg-white">
+        return <Link key={el.id} to={el.id} className="bg-white">
         <div className="flex gap-5 items-center p-5">
             <img src={el.imageUrl} alt="van image" className="w-16"/>
             <div>
@@ -16,7 +16,7 @@ export default function HostVans(){
                 <p className="text-[#4D4D4D]">${el.price}/day</p>
             </div>
         </div>
-    </div>
+    </Link>
     })
     return(
         <div className="px-10">

@@ -18,6 +18,7 @@ import Dashboard from "./components/pages/hosts/Dashboard";
 import Income from "./components/pages/hosts/Income";
 import HostVans, { hostVanLoader } from "./components/pages/hosts/Vans";
 import Reviews from "./components/pages/hosts/Reviews";
+import HostVansDetail from "./components/pages/hosts/HostVansDetail";
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,16 +27,16 @@ export default function App() {
         <Route path="about" element={<About />} />
         <Route path="vans" element={<Vans />} loader={loader} />
         <Route path="vans/:id" element={<VanDetail />} />
-        
-        <Route path="host" element = {<HostLayout/>}>
-        <Route index element ={<Dashboard />} />
-        <Route path="income" element ={<Income />} />
-        <Route loader={hostVanLoader} path="vans" element ={<HostVans />} />
-        <Route path="reviews" element ={<Reviews />} />
+
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="income" element={<Income />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route loader={hostVanLoader} path="vans" element={<HostVans />} />
+          <Route path="vans/:id" element={<HostVansDetail />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
-        
       </Route>
     )
   );
