@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 
 export default function About() {
     return (
-    <div className="bg-[#FFF7ED] text-xl">
+    <div className=" text-xl">
         <img className="w-full" src="./images/about-hero.png" alt="" />
         <div className="p-10 flex flex-col gap-5">
         <div className="flex flex-col gap-5">
