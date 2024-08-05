@@ -16,9 +16,12 @@ import Error from "./components/pages/Error";
 import HostLayout from "./components/layouts/HostLayout";
 import Dashboard from "./components/pages/hosts/Dashboard";
 import Income from "./components/pages/hosts/Income";
-import HostVans, { hostVanLoader } from "./components/pages/hosts/Vans";
+import HostVans, { hostVanLoader } from "./components/pages/hosts/vans/Vans";
 import Reviews from "./components/pages/hosts/Reviews";
-import HostVansDetail from "./components/pages/hosts/HostVansDetail";
+import HostVansDetailLayout from "./components/layouts/HostVanDetailLayout";
+import HostVanDetail from "./components/pages/hosts/vans/HostVanDetail";
+import HostVanPrice from "./components/pages/hosts/vans/HostVanPrice";
+import HostVanPhotos from "./components/pages/hosts/vans/HostVanPhotos";
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -33,7 +36,11 @@ export default function App() {
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
           <Route loader={hostVanLoader} path="vans" element={<HostVans />} />
-          <Route path="vans/:id" element={<HostVansDetail />} />
+          <Route path="vans/:id" element={<HostVansDetailLayout />}>
+            <Route index element={<HostVanDetail />} />
+            <Route path="pricing" element={<HostVanPrice />} />
+            <Route path="photos" element={<HostVanPhotos />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />

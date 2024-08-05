@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import {NavLink, useParams } from "react-router-dom";
+import {NavLink, Outlet, useParams } from "react-router-dom";
 
-export default function HostVansDetail() {
+export default function HostVansDetailLayout() {
   const id = useParams().id;
   const [van, setVan] = useState(null);
   useEffect(() => {
@@ -15,10 +15,10 @@ export default function HostVansDetail() {
     luxury = "bg-[#161616]",
     rugged = "bg-[#115E59]";
   return (
-    <>
+    <div className="p-10">
       {van && (
-        <div className=" bg-white">
-          <div className="p-10 gap-5 text-xl grid grid-cols-[25%_60%] items-center">
+        <div className=" bg-white p-10">
+          <div className="gap-5 text-xl grid grid-cols-[25%_60%] items-center">
             <img src={van.imageUrl} alt="" />
             <div className="flex flex-col gap-5">
               <button
@@ -38,7 +38,7 @@ export default function HostVansDetail() {
               </p>
             </div>
           </div>
-          <div className="px-10 flex my-10 gap-4 text-xl">
+          <div className=" flex my-10 gap-4 text-xl">
             <NavLink
               className={({ isActive }) =>
                 isActive ? "underline font-semibold" : ""
@@ -52,7 +52,7 @@ export default function HostVansDetail() {
               className={({ isActive }) =>
                 isActive ? "underline font-semibold" : ""
               }
-              to="."
+              to="pricing"
             >
               Pricing
             </NavLink>
@@ -60,13 +60,14 @@ export default function HostVansDetail() {
               className={({ isActive }) =>
                 isActive ? "underline font-semibold" : ""
               }
-              to="."
+              to="photos"
             >
               Photos
             </NavLink>
           </div>
+          <Outlet />
         </div>
       )}
-    </>
+    </div>
   );
 }
