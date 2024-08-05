@@ -22,13 +22,13 @@ export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<AppLayout />} errorElement={<Error />}>
-        <Route path="" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="vans" element={<Vans />} loader={loader} />
         <Route path="vans/:id" element={<VanDetail />} />
         
         <Route path="host" element = {<HostLayout/>}>
-        <Route path="" element ={<Dashboard />} />
+        <Route index element ={<Dashboard />} />
         <Route path="income" element ={<Income />} />
         <Route path="vans" element ={<HostVans />} />
         <Route path="reviews" element ={<Reviews />} />
