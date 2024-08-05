@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {NavLink, useParams } from "react-router-dom";
 
 export default function HostVansDetail() {
   const id = useParams().id;
@@ -38,7 +38,33 @@ export default function HostVansDetail() {
               </p>
             </div>
           </div>
-          
+          <div className="px-10 flex my-10 gap-4 text-xl">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline font-semibold" : ""
+              }
+              end
+              to="."
+            >
+              Details
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline font-semibold" : ""
+              }
+              to="."
+            >
+              Pricing
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "underline font-semibold" : ""
+              }
+              to="."
+            >
+              Photos
+            </NavLink>
+          </div>
         </div>
       )}
     </>
