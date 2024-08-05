@@ -16,7 +16,7 @@ import Error from "./components/pages/Error";
 import HostLayout from "./components/layouts/HostLayout";
 import Dashboard from "./components/pages/hosts/Dashboard";
 import Income from "./components/pages/hosts/Income";
-import HostVans from "./components/pages/hosts/Vans";
+import HostVans, { hostVanLoader } from "./components/pages/hosts/Vans";
 import Reviews from "./components/pages/hosts/Reviews";
 export default function App() {
   const router = createBrowserRouter(
@@ -30,7 +30,7 @@ export default function App() {
         <Route path="host" element = {<HostLayout/>}>
         <Route index element ={<Dashboard />} />
         <Route path="income" element ={<Income />} />
-        <Route path="vans" element ={<HostVans />} />
+        <Route loader={hostVanLoader} path="vans" element ={<HostVans />} />
         <Route path="reviews" element ={<Reviews />} />
         </Route>
 
