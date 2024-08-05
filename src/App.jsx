@@ -16,7 +16,9 @@ import Error from "./components/pages/Error";
 import HostLayout from "./components/layouts/HostLayout";
 import Dashboard from "./components/pages/hosts/Dashboard";
 import Income from "./components/pages/hosts/Income";
-import HostVans, { hostVanLoader } from "./components/pages/hosts/vans/Vans";
+import HostVans, {
+  hostVanLoader,
+} from "./components/pages/hosts/vans/HostVans";
 import Reviews from "./components/pages/hosts/Reviews";
 import HostVansDetailLayout from "./components/layouts/HostVanDetailLayout";
 import HostVanDetail from "./components/pages/hosts/vans/HostVanDetail";
