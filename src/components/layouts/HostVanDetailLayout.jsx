@@ -18,7 +18,7 @@ export default function HostVansDetailLayout() {
     <div className="p-10">
       {van && (
         <div className=" bg-white p-10">
-          <div className="gap-5 text-xl grid grid-cols-[25%_60%] items-center">
+          <div className="gap-5 text-xl grid sm:grid-cols-[25%_60%] items-center">
             <img src={van.imageUrl} alt="" />
             <div className="flex flex-col gap-5">
               <button
@@ -32,13 +32,13 @@ export default function HostVansDetailLayout() {
               >
                 {van.type}
               </button>
-              <p className="text-3xl font-bold">{van.name}</p>
+              <p className="lg:text-3xl font-bold">{van.name}</p>
               <p>
                 <span className="font-bold">${van.price}</span>/day
               </p>
             </div>
           </div>
-          <div className=" flex my-10 gap-4 text-xl">
+          <div className=" flex my-10 gap-4 lg:text-xl">
             <NavLink
               className={({ isActive }) =>
                 isActive ? "underline font-semibold" : ""
@@ -65,7 +65,7 @@ export default function HostVansDetailLayout() {
               Photos
             </NavLink>
           </div>
-          <Outlet />
+          <Outlet context={{van}}/>
         </div>
       )}
     </div>
