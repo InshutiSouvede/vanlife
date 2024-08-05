@@ -19,7 +19,7 @@ export default function HostVansDetailLayout() {
       {van && (
         <div className=" bg-white p-10">
           <div className="gap-5 text-xl grid sm:grid-cols-[25%_60%] items-center">
-            <img src={van.imageUrl} alt="" />
+            <img src={van.imageUrl} alt="" className="rounded-md" />
             <div className="flex flex-col gap-5">
               <button
                 className={` w-max text-xl text-center px-5 py-2 rounded-lg text-[#FFEAD0] ${
