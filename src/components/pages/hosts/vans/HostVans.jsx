@@ -9,7 +9,7 @@ export default function HostVans() {
   console.log(vans);
   const vansToDisplay = vans.map((el) => {
     return (
-      <Link key={el.id} to={el.id} className="bg-white">
+      <Link key={el.id} to={`/host/vans/${el.id}`} className="bg-white">
         <div className="flex gap-5 items-center p-5">
           <img src={el.imageUrl} alt="van image" className="w-16" />
           <div>
