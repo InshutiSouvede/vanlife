@@ -7,8 +7,10 @@ export async function loginAction({request}){
         const email = formData.get("email")
         const password = formData.get("passwd")
         const userData = await userLogin(email,password)
+        const redirectTo = new URL(request.url).pathname
         console.log("userData",userData)
-
+        console.log("redirectTo",redirectTo)
+        localStorage.setItem("isloggedIn",true)
         return redirect("/host")
     } catch (error) {
         console.log("catching error",error.message)
