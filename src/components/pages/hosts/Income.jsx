@@ -7,7 +7,7 @@ export default function Income() {
       </p>
 
       <p className="font-bold text-6xl">$2,260</p>
-      <img src="/images/income-graph.png" className="" alt="" />
+      <img src="/images/income-graph.png" className="w-max" alt="" />
       <h2 className="font-bold">Your transactions(3)</h2>
       <div className="flex flex-col gap-5">
         <div className="bg-white rounded-lg py-5 px-10 flex justify-between">
