@@ -1,6 +1,14 @@
-import { Form, useActionData, useSearchParams } from "react-router-dom";
+import { Form, useActionData, useLoaderData, useSearchParams } from "react-router-dom";
 import { redirect } from "../../../redirectUtil";
 import {userLogin} from '../../API'
+import { DoNotLoginAgain } from "../../../utils";
+
+export function loginLoader({request,params}){
+    DoNotLoginAgain(request)
+    const message  = new URL(request.url).searchParams.get("message")
+    return message
+}
+
 export async function loginAction({request}){
     try {
         const formData = await request.formData()
@@ -20,8 +28,11 @@ export async function loginAction({request}){
 }
 export default function Login(){
     const erroMessage = useActionData()
-    const [searchParams, setSearchParams] = useSearchParams();
-    const loginWarning = searchParams.get("message")
+    // you can create a loader function and access params from there if you prefer to
+    // const [searchParams, setSearchParams] = useSearchParams();
+
+    const loginWarning = useLoaderData()
+
     console.log("loginWarning",loginWarning)
     console.log("erroMessage",erroMessage)
     return (

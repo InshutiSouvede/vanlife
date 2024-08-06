@@ -24,14 +24,14 @@ import HostVansDetailLayout, {
 import HostVanDetail from "./components/pages/hosts/vans/HostVanDetail";
 import HostVanPrice from "./components/pages/hosts/vans/HostVanPrice";
 import HostVanPhotos from "./components/pages/hosts/vans/HostVanPhotos";
-import Login, { loginAction } from "./components/pages/Login";
+import Login, { loginAction, loginLoader } from "./components/pages/Login";
 import { checkLoginStatus } from "../utils";
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<AppLayout />} >
+      <Route path="/" element={<AppLayout />} errorElement={<Error />} >
         <Route index element={<Home />} />
-        <Route path="/login" element={<Login />} action={loginAction} />
+        <Route path="/login" element={<Login />} action={loginAction} loader={loginLoader} />
 
         <Route path="about" element={<About />} />
         <Route path="vans" element={<Vans />} loader={loader} errorElement={<Error />} />
