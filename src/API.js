@@ -1,3 +1,15 @@
+export async function Login(){
+    const res = await fetch('/api/login')
+    if(!res.ok){
+        throw {
+            message:res?.message||"User not found",
+            statusText:res.statusText,
+            status:res.status
+        }
+    }
+    const userData = await res.json()
+    return userData
+}
 export  async function getAllVans(){
     const res = await fetch('/api/vans')
     if(!res.ok){

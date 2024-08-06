@@ -2,6 +2,7 @@ import { Form } from "react-router-dom";
 
 export async function loginAction({request}){
     const formData = await request.formData()
+    
     return null
 }
 export default function Login(){
