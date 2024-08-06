@@ -1,4 +1,5 @@
 import { createServer, Model } from "miragejs"
+import { json } from "react-router-dom"
 
 let server = createServer({
     models: {
@@ -49,7 +50,11 @@ let server = createServer({
             // in your database 😇
             const foundUser = schema.users.findBy({ email, password })
             if (!foundUser) {
-                return new Response(401, {}, { message: "No user with those credentials found!" })
+                const res = new Response({ message: "No user with those credentials found!" },{ status: 401, statusText: "unathorized" })
+                // res.status = 401
+                // res.statusText = "Unauthorized"
+                // console.log("User not found", email,password,res.status,res.statusText)
+                return res            
             }
 
             // At the very least, don't send the password back to the client 😅

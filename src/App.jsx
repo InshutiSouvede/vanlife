@@ -29,19 +29,20 @@ import { checkLoginStatus } from "../utils";
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<AppLayout />} errorElement={<Error />}>
+      <Route path="/" element={<AppLayout />} >
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} action={loginAction} />
 
         <Route path="about" element={<About />} />
-        <Route path="vans" element={<Vans />} loader={loader} />
+        <Route path="vans" element={<Vans />} loader={loader} errorElement={<Error />} />
         <Route
           path="vans/:id"
           element={<VanDetail />}
           loader={vanDetailLoader}
+          errorElement={<Error />}
         />
 
-        <Route path="host" element={<HostLayout />}>
+        <Route path="host" element={<HostLayout />} loader={async({request})=> await checkLoginStatus(request)}>
           <Route index element={<Dashboard />} loader={hostVanLoader} />
           <Route path="income" element={<Income />} loader={async({request})=> await checkLoginStatus(request)} />
           <Route path="reviews" element={<Reviews />} loader={async({request})=> await checkLoginStatus(request)} />

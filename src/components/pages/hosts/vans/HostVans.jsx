@@ -3,7 +3,7 @@ import { getHostVans } from "../../../../API";
 import { checkLoginStatus } from "../../../../../utils";
 
 export function hostVanLoader({request}) {  
-  checkLoginStatus(request)
+  // checkLoginStatus(request)
   return getHostVans();
 }
 export default function HostVans({ children }) {
