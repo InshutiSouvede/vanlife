@@ -14,9 +14,13 @@ export default function Dashboard() {
         <p className="font-bold text-3xl">$2,260</p>
       </div>
       <div className="p-10 text-xl bg-[#FFDDB2] flex justify-between mb-10">
-        <div className="flex">
-            <p>Review score</p>
-            <p><span>5.0</span>/5</p>
+        <div className="flex gap-5">
+            <p className="font-bold">Review score</p>
+            <div className="flex gap-1">
+            <img src="./images/star.svg" alt="" />
+            <p>  <span>5.0</span>/5</p>
+            </div>
+            
         </div>
         <p>Details</p>
       </div>
