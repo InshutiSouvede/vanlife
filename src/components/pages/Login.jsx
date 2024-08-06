@@ -1,4 +1,4 @@
-import { Form, useActionData } from "react-router-dom";
+import { Form, useActionData, useSearchParams } from "react-router-dom";
 import { redirect } from "../../../redirectUtil";
 import {userLogin} from '../../API'
 export async function loginAction({request}){
@@ -18,11 +18,14 @@ export async function loginAction({request}){
 }
 export default function Login(){
     const erroMessage = useActionData()
+    const [searchParams, setSearchParams] = useSearchParams();
+    const loginWarning = searchParams.get("message")
+    console.log("loginWarning",loginWarning)
     console.log("erroMessage",erroMessage)
     return (
         <div className="p-10">
             <h1 className="text-center text-3xl font-bold">Sign in to your account</h1>
-            {/* {erroMessage&&<p className="text-red-800 font-semibold">{erroMessage}</p>} */}
+            {loginWarning&&<p className="text-red-800 font-semibold text-center">{loginWarning}</p>}
             <Form method="post" className="flex flex-col my-10" replace>
                 <input name="email" className=" rounded-br-none rounded-bl-none rounded-md h-10 border border-gray-400 px-5 " type="text" placeholder="Email address"/>
                 <input name="passwd" className="rounded-tr-none rounded-tl-none rounded-md h-10 border border-gray-400 px-5 " type="password" placeholder="Password"/>
