@@ -3,8 +3,8 @@ import { getHostVans } from "../../../../API";
 import { checkLoginStatus } from "../../../../../utils";
 import { Suspense } from "react";
 
-export function hostVanLoader({request}) {  
-  // checkLoginStatus(request)
+export async function hostVanLoader({request}) {  
+  await checkLoginStatus(request)
   return defer({hostVans:getHostVans()});
 }
 export default function HostVans({ children }) {
