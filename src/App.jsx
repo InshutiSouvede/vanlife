@@ -34,12 +34,12 @@ export default function App() {
         <Route path="vans/:id" element={<VanDetail />} />
 
         <Route path="host" element={<HostLayout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Dashboard />} loader={hostVanLoader} />
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
           <Route loader={hostVanLoader} path="vans" element={<HostVans />} />
           <Route path="vans/:id" element={<HostVansDetailLayout />}>
-            <Route index element={<HostVanDetail />} />
+            <Route index element={<HostVanDetail />}  />
             <Route path="pricing" element={<HostVanPrice />} />
             <Route path="photos" element={<HostVanPhotos />} />
           </Route>

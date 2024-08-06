@@ -1,3 +1,5 @@
+import HostVans from "./vans/HostVans";
+
 export default function Dashboard() {
   return (
     <>
@@ -11,13 +13,14 @@ export default function Dashboard() {
         </div>
         <p className="font-bold text-3xl">$2,260</p>
       </div>
-      <div className="p-10 text-xl bg-[#FFDDB2] flex justify-between">
+      <div className="p-10 text-xl bg-[#FFDDB2] flex justify-between mb-10">
         <div className="flex">
             <p>Review score</p>
             <p><span>5.0</span>/5</p>
         </div>
         <p>Details</p>
       </div>
+      <HostVans />
     </>
   );
 }
