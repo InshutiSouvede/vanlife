@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import {Link, NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
 import { getHostVanById } from "../../API";
-export function HostVanDetailLoader({params}) {
+import { checkLoginStatus } from "../../../utils";
+export function HostVanDetailLoader({params,request}) {
+  checkLoginStatus(request)
   return getHostVanById(params.id)
 }
 export default function HostVansDetailLayout() {

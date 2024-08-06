@@ -1,10 +1,14 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, redirect, useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
 import { getHostVans } from "../../../../API";
+import { checkLoginStatus } from "../../../../../utils";
 
-export function hostVanLoader() {
+export function hostVanLoader({request}) {  
+  checkLoginStatus(request)
   return getHostVans();
 }
 export default function HostVans({ children }) {
+  const loggedIn = false
+  const navigate = useNavigate()
   const vans = useLoaderData();
   console.log(vans);
   const vansToDisplay = vans.map((el) => {
