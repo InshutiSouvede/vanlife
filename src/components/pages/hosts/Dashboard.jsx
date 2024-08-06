@@ -20,7 +20,9 @@ export default function Dashboard() {
         </div>
         <p>Details</p>
       </div>
-      <HostVans />
+      <HostVans>
+        <p className="cursor-pointer">Edit</p>
+      </HostVans>
     </>
   );
 }
