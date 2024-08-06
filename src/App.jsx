@@ -43,10 +43,10 @@ export default function App() {
         />
 
         <Route path="host" element={<HostLayout />} loader={async({request})=> await checkLoginStatus(request)}>
-          <Route index element={<Dashboard />} loader={hostVanLoader} />
+          <Route index element={<Dashboard/>} loader={hostVanLoader} />
           <Route path="income" element={<Income />} loader={async({request})=> await checkLoginStatus(request)} />
           <Route path="reviews" element={<Reviews />} loader={async({request})=> await checkLoginStatus(request)} />
-          <Route loader={hostVanLoader} path="vans" element={<HostVans />} />
+          <Route loader={hostVanLoader} path="vans" element={<HostVans><p>readonly</p></HostVans>} />
           <Route
             path="vans/:id"
             element={<HostVansDetailLayout />}
