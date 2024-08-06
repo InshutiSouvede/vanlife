@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react"
 import '../../../../server'
-import { Link, useLocation, useParams } from "react-router-dom"
+import { Link, useLoaderData, useLocation, useParams } from "react-router-dom"
+import { getVanById } from "../../../API"
+export function vanDetailLoader({params}) {
+    return getVanById(params.id)
+}
 export default function VanDetail(){
-    const [van,setVan] = useState(null)
-    const id = useParams().id
-    useEffect(()=>{
-        fetch(`/api/vans/${id}`)
-        .then(data=>data.json())
-        .then((data)=>{
-            setVan(data.vans)
-        })
-    },[id])
+    const van  = useLoaderData()
     const simple = 'bg-[#E17654]', luxury= 'bg-[#161616]',rugged ='bg-[#115E59]'
     const state = useLocation().state
     const type = state.type, search =state.search 

@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import {Link, NavLink, Outlet, useParams } from "react-router-dom";
-
+import {Link, NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
+import { getHostVanById } from "../../API";
+export function HostVanDetailLoader({params}) {
+  return getHostVanById(params.id)
+}
 export default function HostVansDetailLayout() {
-  const id = useParams().id;
-  const [van, setVan] = useState(null);
-  useEffect(() => {
-    console.log(id);
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-  }, [id]);
+  const van = useLoaderData()
 
   const simple = "bg-[#E17654]",
     luxury = "bg-[#161616]",
