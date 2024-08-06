@@ -1,5 +1,4 @@
-import { createServer, Model } from "miragejs"
-import { json } from "react-router-dom"
+import { createServer, Model, Response } from "miragejs"
 
 let server = createServer({
     models: {
@@ -50,10 +49,7 @@ let server = createServer({
             // in your database 😇
             const foundUser = schema.users.findBy({ email, password })
             if (!foundUser) {
-                const res = new Response({ message: "No user with those credentials found!" },{ status: 401, statusText: "unathorized" })
-                // res.status = 401
-                // res.statusText = "Unauthorized"
-                // console.log("User not found", email,password,res.status,res.statusText)
+                const res = new Response(401,{},{ message: "No user with those credentials found!" })
                 return res            
             }
 

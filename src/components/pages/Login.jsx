@@ -28,17 +28,13 @@ export async function loginAction({request}){
 }
 export default function Login(){
     const erroMessage = useActionData()
-    // you can create a loader function and access params from there if you prefer to
-    // const [searchParams, setSearchParams] = useSearchParams();
 
     const loginWarning = useLoaderData()
-
-    console.log("loginWarning",loginWarning)
-    console.log("erroMessage",erroMessage)
     return (
         <div className="p-10">
             <h1 className="text-center text-3xl font-bold">Sign in to your account</h1>
-            {loginWarning&&<p className="text-red-800 font-semibold text-center">{loginWarning}</p>}
+            {loginWarning&&<p className="text-red-800 text-xl font-semibold text-center">{loginWarning}</p>}
+            {erroMessage&& <p className="text-red-800 text-xl font-semibold text-center">{erroMessage}</p>}
             <Form method="post" className="flex flex-col my-10" replace>
                 <input name="email" className=" rounded-br-none rounded-bl-none rounded-md h-10 border border-gray-400 px-5 " type="text" placeholder="Email address"/>
                 <input name="passwd" className="rounded-tr-none rounded-tl-none rounded-md h-10 border border-gray-400 px-5 " type="password" placeholder="Password"/>
