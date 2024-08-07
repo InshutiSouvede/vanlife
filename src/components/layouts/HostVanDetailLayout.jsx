@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
-import {Link, NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
-import { getHostVanById } from "../../API";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLoaderData,
+  useParams,
+} from "react-router-dom";
+import { getHostVanById } from "../../api";
 import { checkLoginStatus } from "../../../utils";
-export function HostVanDetailLoader({params,request}) {
-  checkLoginStatus(request)
-  return getHostVanById(params.id)
+export function HostVanDetailLoader({ params, request }) {
+  checkLoginStatus(request);
+  return getHostVanById(params.id);
 }
 export default function HostVansDetailLayout() {
-  const van = useLoaderData()
+  const van = useLoaderData();
 
   const simple = "bg-[#E17654]",
     luxury = "bg-[#161616]",
     rugged = "bg-[#115E59]";
   return (
     <div className="p-10">
-        <Link to='..' relative="path">&larr; <span className="underline text-lg">Back to all vans</span></Link>
+      <Link to=".." relative="path">
+        &larr; <span className="underline text-lg">Back to all vans</span>
+      </Link>
       {van && (
         <div className=" bg-white p-10 my-10">
           <div className="gap-5 text-xl flex flex-wrap items-center">
@@ -64,7 +72,7 @@ export default function HostVansDetailLayout() {
               Photos
             </NavLink>
           </div>
-          <Outlet context={{van}}/>
+          <Outlet context={{ van }} />
         </div>
       )}
     </div>

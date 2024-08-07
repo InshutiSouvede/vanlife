@@ -7,7 +7,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import "../../../../server";
-import { getAllVans } from "../../../API";
+import { getAllVans } from "../../../api";
 
 export function loader() {
   return defer({ vansPromise: getAllVans() });

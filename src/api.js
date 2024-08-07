@@ -1,3 +1,16 @@
+import { initializeApp } from "firebase/app";
+const firebaseConfig = {
+  apiKey: "AIzaSyCoc8Dtc-PuSlY-ZA-3dgaf9qfLJHzmeuo",
+  authDomain: "vanlife-e3389.firebaseapp.com",
+  projectId: "vanlife-e3389",
+  storageBucket: "vanlife-e3389.appspot.com",
+  messagingSenderId: "202879880709",
+  appId: "1:202879880709:web:6f833ee152f3989693d66c"
+};
+
+const app = initializeApp(firebaseConfig);
+
+
 export async function userLogin(email,password){
     // return data
     const res = await fetch('/api/login',{method:"post",body:JSON.stringify({email,password})})
