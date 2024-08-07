@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore/lite";//lite: No real-time update
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore/lite";//lite: No real-time update
 const firebaseConfig = {
   apiKey: "AIzaSyCoc8Dtc-PuSlY-ZA-3dgaf9qfLJHzmeuo",
   authDomain: "vanlife-e3389.firebaseapp.com",
@@ -40,16 +40,12 @@ export  async function getAllVans(){
     return dataArr
 }
 export  async function getHostVans(){
-    const res = await fetch('/api/host/vans')
-    if(!res.ok){
-        throw {
-            message:"Failed to fetch vans",
-            statusText:res.statusText,
-            status:res.status
-        }
-    }
-    const data = await res.json()
-    return data.vans
+    const q = query(vansCollectionRef,where("hostId","==","123"))
+    
+    const querySnapshot = await getDocs(q)
+    const dataArr = querySnapshot.docs.map((doc)=>({...doc.data(),id:doc.id}))
+    
+    return dataArr
 }
 export async function getVanById(id) {
     const docRef = doc(db,"vans",id)
