@@ -15,7 +15,6 @@ export async function DoNotLoginAgain(request) {
     const redirectTo = new URL(request.url).pathname
 
     if(loggedin){
-        // console.log("Already logged in",redirectTo)
         throw redirect('/host')
     }
     return null 
